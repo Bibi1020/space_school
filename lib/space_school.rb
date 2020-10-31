@@ -6,4 +6,4 @@ module SpaceSchool
   # Your code goes here...
 end
 
-Game.start
+#Game.start
