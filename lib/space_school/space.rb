@@ -1,28 +1,26 @@
 class Space 
 
-    def Space.show
-        space = Space.new 
-        space.show_matrix
-    end
-    
     def initialize
-        @matrix = []
+        @matrix = matrix
     end 
 
     def matrix 
-        (0..64).each do |i| 
-            @matrix[i] = []
-            (0..64).each do |j|
-                @matrix[i][j] = " - "
+      matrix = []
+        (0..9).each do |i| 
+            matrix[i] = []
+            (0..9).each do |j|
+                matrix[i][j] = " - "
             end
         end 
-        @matrix
+       matrix 
     end 
 
-    def show_matrix 
+    def show
         @matrix.each_index do |i| 
             print @matrix[i] 
             puts ""
         end
+        @matrix
     end
 end
+
