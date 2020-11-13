@@ -9,9 +9,5 @@ module SpaceSchool
 end
 
 
-#Game.start
-<<<<<<< HEAD
-#hola como estas? 
-=======
+#Game.star
 #Meteor.generate
->>>>>>> upstream/main
