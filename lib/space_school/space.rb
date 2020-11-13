@@ -3,8 +3,8 @@ require_relative 'meteor'
 class Space 
 
     def initialize
-        @matrix = matrix
-        @meteor = Meteor.generate
+        @matrix = sustitution_matrix(matrix)
+        @meteor = Meteor.new.generate
     end 
 
     def matrix 
@@ -18,8 +18,7 @@ class Space
        matrix 
     end 
 
-    def show
-        @matrix = sustitution_matrix(show)
+    def show_m
         Meteor.down(@meteor)
         @matrix.each_index do |i| 
             print @matrix[i] 
@@ -28,13 +27,13 @@ class Space
         @matrix
     end
 
-    def sustitution_matrix(show)
-      @meteor.each do |meteor|
+    def sustitution_matrix(matrix)
+      @meteor.each do |i|
         x = meteor.position[0]
         y = meteor.position[1]
-        sustitution[x][y] = Meteor.show
+        matrix[x][y] = Meteor.show
       end
-      sustitution
+      matrix
     end
 end
 

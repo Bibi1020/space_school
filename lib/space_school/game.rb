@@ -44,7 +44,7 @@ class Game
   def draw
     system 'clear'
     puts "Frames: #{@frames}"
-    @space.show
+    @space.show_m
     show_menu
   end
 

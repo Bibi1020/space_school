@@ -10,3 +10,4 @@ end
 
 
 Game.start
+Meteor.generate
