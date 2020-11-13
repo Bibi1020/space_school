@@ -1,3 +1,5 @@
+require_relative 'movements'
+
 class Space 
 
     def initialize
