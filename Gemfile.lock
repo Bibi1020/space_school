@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-PATH
-  remote: .
-  specs:
-    space_school (0.1.0)
-
-=======
->>>>>>> 8dc9c7b3b85ae4404db0d57894c8b174dda1ce45
 GEM
   remote: https://rubygems.org/
   specs:
@@ -31,10 +23,6 @@ PLATFORMS
 DEPENDENCIES
   rake (~> 12.0)
   rspec (~> 3.0)
-<<<<<<< HEAD
-  space_school!
-=======
->>>>>>> 8dc9c7b3b85ae4404db0d57894c8b174dda1ce45
 
 BUNDLED WITH
    2.1.4
