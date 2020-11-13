@@ -10,4 +10,4 @@ end
 
 
 #Game.star
-#Meteor.generate
+Meteor.generate
