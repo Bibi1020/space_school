@@ -19,8 +19,10 @@ class Space
     end 
 
     def show_m
+        @meteors += Meteor.generate
         sustitution_matrix(@matrix)
         Meteor.down(@meteors)
+        system ('clear')
         @matrix.each_index do |i| 
             print @matrix[i] 
             puts ""
@@ -28,7 +30,7 @@ class Space
     end
 
     def sustitution_matrix(matrix)
-      @meteors.each do |meteor|  
+      @meteors.each do |meteor|
         x = meteor.position[0]
         y = meteor.position[1]
         matrix[x][y] = meteor.show
