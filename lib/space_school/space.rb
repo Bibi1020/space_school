@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 require_relative 'movements'
+=======
+require_relative 'meteor'
+>>>>>>> feature_space
 
 class Space 
 
     def initialize
         @matrix = matrix
+        @meteors = Meteor.generate
     end 
 
     def matrix 
@@ -14,15 +19,27 @@ class Space
                 matrix[i][j] = " - "
             end
         end 
-       matrix 
+        matrix
     end 
 
-    def show
+    def show_m
+        @meteors += Meteor.generate
+        sustitution_matrix(@matrix)
+        Meteor.down(@meteors)
+        system ('clear')
         @matrix.each_index do |i| 
             print @matrix[i] 
             puts ""
         end
-        @matrix
+    end
+
+    def sustitution_matrix(matrix)
+      @meteors.each do |meteor|
+        x = meteor.position[0]
+        y = meteor.position[1]
+        matrix[x][y] = meteor.show
+      end 
+      matrix
     end
 end
 
