@@ -8,4 +8,4 @@ module SpaceSchool
 end 
 
 
-#Game.start
+Game.start

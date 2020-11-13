@@ -1,5 +1,5 @@
 class Space 
-
+    
     def initialize
         @matrix = matrix
     end 
@@ -20,7 +20,6 @@ class Space
             print @matrix[i] 
             puts ""
         end
-        @matrix
     end
 end
 
