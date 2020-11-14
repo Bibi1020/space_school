@@ -32,6 +32,7 @@ class Meteor
 
     set.each do |elem|
       elem.down
+      elem.down if elem.position[0] < 9
     end
 
   end

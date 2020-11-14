@@ -19,7 +19,7 @@ class Game
       @frames += 1 # Cantidad de frame desde que el juego comenzó (puede ser útil... o ¡no!)
       draw
       handle_input # manejo de la la entrada del jugador
-      sleep 1.0 / @fps # tiempo de refrescamiento
+      sleep 3.0 / @fps # tiempo de refrescamiento
     end
   end
 
@@ -44,7 +44,7 @@ class Game
   def draw
     system 'clear'
     puts "Frames: #{@frames}"
-    @space.show
+    @space.show_m
     show_menu
   end
 
