@@ -14,8 +14,6 @@ class Ship
     @shape 
   end
   
-  
-    
 
 end
     
