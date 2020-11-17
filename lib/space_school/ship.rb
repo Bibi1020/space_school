@@ -3,6 +3,7 @@ require_relative 'movements'
 class Ship
  
   attr_accessor :position, :shape
+  include Movements
 
   def initialize 
     @position = [9,5] 
@@ -12,6 +13,7 @@ class Ship
   def show_ship 
     @shape 
   end
+  
   
     
 

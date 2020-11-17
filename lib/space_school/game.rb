@@ -2,6 +2,7 @@
 # Esto permite que la captura del input no detenga el juego mientras espera respuesta.
 require_relative 'utils'
 require_relative 'space'
+require_relative 'movements' 
 class Game
   def self.start
     game = Game.new
@@ -10,7 +11,7 @@ class Game
 
   def initialize
     @space = Space.new
-    @frames = 0
+    @frames = 0d
     @fps = 10 # cantidad de frames por segundo
   end
 
