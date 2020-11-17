@@ -1,7 +1,7 @@
 require_relative "space_school/version"
 require_relative 'space_school/game'
-require_relative 'space_school/space'
 require_relative 'space_school/meteor'
+require_relative 'space_school/space'
 
 module SpaceSchool
   #class Error < StandardError; end
@@ -9,5 +9,5 @@ module SpaceSchool
 end
 
 
-#Game.start
+Game.start
 #Meteor.generate
