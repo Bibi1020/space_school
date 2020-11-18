@@ -12,8 +12,8 @@ class Game
   end
 
   def initialize
-    @ship = Ship.start
-    @space = Space.new
+    @ship = Ship.new
+    @space = Space.new(@ship)
     @frames = 0
     @fps = 10 # cantidad de frames por segundo
   end
@@ -50,7 +50,7 @@ class Game
   def draw
     system 'clear'
     puts "Frames: #{@frames}"
-    @space.show_m
+    @space.oficial_space 
     show_menu
   end
 

@@ -3,10 +3,10 @@ require_relative 'meteor'
 require_relative 'ship'
 class Space 
 
-  def initialize
+  def initialize(ship)
     @matrix = matrix
     @meteors = Meteor.generate
-    @ship = Ship.start 
+    @ship = ship
   end 
 
   def matrix 
@@ -23,35 +23,41 @@ class Space
   end 
 
   def show_m
-    print @meteors
-    sustitution_ship(@matrix)
-    sustitution_matrix(@matrix)
-    Meteor.down(@meteors)
-    
-    
     @matrix.each_index do |i| 
     print @matrix[i] 
     puts ""
+    end 
   end
-  end
+  
+
+  def oficial_space 
+    @matrix = matrix 
+     #print @meteors
+     @meteors += Meteor.generate 
+     sustitution_ship
+     sustitution_matrix
+     Meteor.down(@meteors)
+     show_m
+  end 
+    
 
 
-  def sustitution_matrix(matrix)
+  def sustitution_matrix
     
     @meteors.each do |meteor|
       x = meteor.position[0]
       y = meteor.position[1]
-      matrix[x][y] = meteor.show
+      @matrix[x][y] = meteor.show
   end 
 
-    matrix
+    @matrix
   end
 
-  def sustitution_ship(matrix)
+  def sustitution_ship
     x = @ship.position[0]
     y = @ship.position[1]
-    matrix[x][y] = @ship.show_ship
-    matrix
+    @matrix[x][y] = @ship.show_ship
+    @matrix
   end
 
 end
