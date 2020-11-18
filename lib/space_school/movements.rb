@@ -1,7 +1,14 @@
+
+
 module Movements
 
-  def down
-    self.position[0] += 1
+
+  def down(speed = 1)
+
+    self.position[0] += speed
+
   end
+
+
 
 end

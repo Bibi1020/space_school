@@ -1,26 +1,27 @@
-class Space 
+class Space
+  attr_accessor :time
 
     def initialize
         @matrix = matrix
-    end 
+        @time = 0
+    end
 
-    def matrix 
+    def matrix
       matrix = []
-        (0..9).each do |i| 
+        (0..9).each do |i|
             matrix[i] = []
             (0..9).each do |j|
                 matrix[i][j] = " - "
             end
-        end 
-       matrix 
-    end 
+        end
+       matrix
+    end
 
     def show
-        @matrix.each_index do |i| 
-            print @matrix[i] 
+        @matrix.each_index do |i|
+            print @matrix[i]
             puts ""
         end
         @matrix
     end
 end
-

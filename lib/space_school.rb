@@ -9,5 +9,4 @@ module SpaceSchool
 end
 
 
-#Game.start
-#Meteor.generate
+Game.start

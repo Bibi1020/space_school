@@ -17,6 +17,7 @@ class Game
   def update
     loop do
       @frames += 1 # Cantidad de frame desde que el juego comenzó (puede ser útil... o ¡no!)
+      timer
       draw
       handle_input # manejo de la la entrada del jugador
       sleep 1.0 / @fps # tiempo de refrescamiento
@@ -53,5 +54,21 @@ class Game
     puts '##################################'
     puts 'd: derecha, a: izquierda, x: salir'
     puts '##################################'
+  end
+
+  private
+
+  def timer
+
+    case @frames
+
+    when >= 300 && <= 450
+      @space.time = 2
+    when >= 450 && <= 600
+      @space.time = 3
+    else
+      @space.time = 1
+    end
+
   end
 end
