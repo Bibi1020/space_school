@@ -11,7 +11,7 @@ class Game
 
   def initialize
     @space = Space.new
-    @frames = 0d
+    @frames = 0
     @fps = 10 # cantidad de frames por segundo
   end
 

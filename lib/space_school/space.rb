@@ -5,7 +5,7 @@ class Space
 
   def initialize
     @matrix = matrix
-    @meteors = Meteor.generate
+    #@meteors = Meteor.generate
     @ship = Ship.new
   end 
 
@@ -23,10 +23,10 @@ class Space
   end 
 
   def show_m
-    @meteors += Meteor.generate
+    #@meteors += Meteor.generate
     sustitution_ship(@matrix)
     sustitution_matrix(@matrix)
-    Meteor.down(@meteors)
+    #Meteor.down(@meteors)
     system ('clear')
 
     @matrix.each_index do |i| 
@@ -37,8 +37,8 @@ class Space
   end
 
   def sustitution_matrix(matrix)
-    
-    @meteors.each do |meteor|
+    meteors = Meteor.generate
+    meteors.each do |meteor|
       x = meteor.position[0]
       y = meteor.position[1]
       matrix[x][y] = meteor.show
