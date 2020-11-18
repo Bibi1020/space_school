@@ -23,26 +23,22 @@ class Space
   end 
 
   def show_m
+    print @meteors
     sustitution_ship(@matrix)
     sustitution_matrix(@matrix)
     Meteor.down(@meteors)
-    #limit 
+    
+    
     @matrix.each_index do |i| 
     print @matrix[i] 
     puts ""
   end
   end
 
-  def limit 
-    if @meteors[0] ==  9
-    system ('clear')
-    Meteor.generate
-    end
-  end
 
   def sustitution_matrix(matrix)
-    meteors = Meteor.generate
-    meteors.each do |meteor|
+    
+    @meteors.each do |meteor|
       x = meteor.position[0]
       y = meteor.position[1]
       matrix[x][y] = meteor.show
