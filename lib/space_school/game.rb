@@ -1,8 +1,10 @@
 # La librería utils maneja el control de input del usuario.
 # Esto permite que la captura del input no detenga el juego mientras espera respuesta.
 require_relative 'utils'
-require_relative 'space'
-require_relative 'movements' 
+require_relative 'movements'
+require_relative 'space' 
+require_relative 'ship'
+
 class Game
   def self.start
     game = Game.new
@@ -10,6 +12,7 @@ class Game
   end
 
   def initialize
+    @ship = Ship.start
     @space = Space.new
     @frames = 0
     @fps = 10 # cantidad de frames por segundo
@@ -29,8 +32,10 @@ class Game
     case key
     when 'a'
       # mover nave a la izquierda :left
+      @ship.left
     when 'd'
       # mover nave a la derecha
+      @ship.right
     when 'x'
       game_over
     end

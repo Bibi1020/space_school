@@ -29,11 +29,10 @@ class Meteor
   end
 
   def self.down(set)
-
+    
     set.each do |elem|
       elem.down if elem.position[0] < 9
     end
-
   end
 
   def initialize
