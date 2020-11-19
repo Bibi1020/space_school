@@ -1,7 +1,7 @@
 # La librería utils maneja el control de input del usuario.
 # Esto permite que la captura del input no detenga el juego mientras espera respuesta.
 require_relative 'utils'
-require_relative 'space' 
+require_relative 'space'
 require_relative 'ship'
 class Game
   def self.start
@@ -19,6 +19,7 @@ class Game
   def update
     loop do
       @frames += 1 # Cantidad de frame desde que el juego comenzó (puede ser útil... o ¡no!)
+      calculate_speed_game
       draw
       handle_input # manejo de la la entrada del jugador
       sleep 3.0 / @fps # tiempo de refrescamiento
@@ -57,5 +58,19 @@ class Game
     puts '##################################'
     puts 'd: derecha, a: izquierda, x: salir'
     puts '##################################'
+  end
+
+  private
+
+  def calculate_speed_game
+
+    if @frames >= 300 && @frames <= 450
+      @space.speed = 2
+    elsif @frames >= 450 && @frames <= 600
+      @space.speed = 3
+    else
+      @space.speed = 1
+    end
+
   end
 end

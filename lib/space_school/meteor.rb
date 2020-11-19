@@ -3,6 +3,7 @@ require_relative 'movements'
 class Meteor
 
   attr_accessor :position
+
   include Movements
 
   def self.generate
@@ -28,18 +29,18 @@ class Meteor
     set
   end
 
-  def self.down(set)
+  def self.down(set,speed)
 
     set.each do |elem|
-      elem.down if elem.position[0] < 9
+      elem.down(speed) if elem.position[0] < 9
     end
-
   end
 
   def initialize
     @shape = "x-x"
     @position = [0]
     @position << random_y
+
   end
 
   def show
