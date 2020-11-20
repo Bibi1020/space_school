@@ -1,26 +1,30 @@
 require_relative 'movements'
 require_relative 'meteor'
 require_relative 'ship'
-class Space 
+class Space
+  attr_accessor :speed
 
   def initialize(ship)
     @matrix = matrix
     @meteors = Meteor.generate
     @ship = ship
-  end 
+    @speed = 0
+  end
 
-  def matrix 
+  def speed
+    @speed
+  end
+
+  def matrix
     matrix = []
-
-      (0..9).each do |i| 
+      (0..9).each do |i|
           matrix[i] = []
-        (0..9).each do |j|
-          matrix[i][j] = " - "
-        end
-      end 
-
-    matrix
-  end 
+          (0..9).each do |j|
+              matrix[i][j] = "   "
+          end
+      end
+      matrix
+  end
 
   def show_m
     @matrix.each_index do |i| 
@@ -32,24 +36,32 @@ class Space
 
   def oficial_space 
     @matrix = matrix 
-     #print @meteors
      @meteors += Meteor.generate 
      sustitution_ship
      sustitution_matrix
-     Meteor.down(@meteors)
+     Meteor.down(@meteors,@speed)
+     blank_space
      show_m
+     
   end 
     
-
-
   def sustitution_matrix
-    
     @meteors.each do |meteor|
       x = meteor.position[0]
       y = meteor.position[1]
       @matrix[x][y] = meteor.show
-  end 
+    end 
+    @matrix
+  end
 
+  def blank_space
+    @meteors.each do |meteor|
+      if meteor.position[0] == 9
+      x = meteor.position[0]
+      y = meteor.position[1]
+      @matrix[x][y] = "   "
+      end 
+    end
     @matrix
   end
 
@@ -57,8 +69,6 @@ class Space
     x = @ship.position[0]
     y = @ship.position[1]
     @matrix[x][y] = @ship.show_ship
-    @matrix
+    @matrix 
   end
-
-end
-
+end   

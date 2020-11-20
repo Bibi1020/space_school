@@ -8,7 +8,7 @@ class Ship
 
   def initialize 
     @position = [9,5] 
-    @shape = "00" 
+    @shape = "🚀 " 
   end 
     
   def show_ship 
