@@ -69,14 +69,25 @@ class Space
     @matrix[x][y] = @ship.show_ship
     @matrix 
   end
-end   
+  
 
-def real_verification
-  @meteors.each do |meteor|
-    if meteor.position[0] == @ship.position[0] && meteor.position[1] == @ship.position[1]
-      system('clear')
-      puts "Queridos familiares de la tripulación, lamentamos informales que sus heroes han fallecido en la importante misión hacia las estrellas. Tenemos pruebas que el piloto lucho por mantener la nave a salvo de un cinturon de asteroides, por el que tuvieron que pasar. Los recordaremos por siempre"
-      raise StopIteration
+  def real_verification
+    @meteors.each do |meteor|
+      if meteor.position[0] == @ship.position[0] && meteor.position[1] == @ship.position[1]
+        system('clear')
+        puts "Queridos familiares de la tripulación, lamentamos informales que sus heroes han fallecido en la importante misión hacia las estrellas. Tenemos pruebas que el piloto lucho por mantener la nave a salvo de un cinturon de asteroides, por el que tuvieron que pasar. Los recordaremos por siempre"
+        raise StopIteration
+      end
     end
   end
-end
+
+  def energy_real
+    energy = 0
+    @meteors.each do |meteor|
+      if meteor.position[0] == @ship.position[0] && meteor.position[1] == @ship.position[1] - 1
+        energy += 1 
+      end
+    end
+  end
+
+end 

@@ -44,6 +44,7 @@ class Game
     end
   end
 
+
   def game_over
     system 'clear'
     puts "¡Perdiste!"
@@ -52,7 +53,8 @@ class Game
 
   def draw
     system 'clear'
-    puts "Frames: #{@frames} Velocidad de los asteroides: #{@space.speed}"
+    puts "Frames: #{@frames} 
+    Velocidad de los asteroides: #{@space.speed}"
     @space.oficial_space 
     show_menu
   end
