@@ -1,3 +1,4 @@
+
 require_relative 'movements'
 require_relative 'meteor'
 require_relative 'ship'
@@ -9,10 +10,6 @@ class Space
     @meteors = Meteor.generate
     @ship = ship
     @speed = 0
-  end
-
-  def speed
-    @speed
   end
 
   def matrix
@@ -27,8 +24,8 @@ class Space
   end
 
   def show_m
-    @matrix.each_index do |i| 
-    print @matrix[i] 
+    @matrix.each_index do |i|  
+    print @matrix[i]
     puts ""
     end 
   end
@@ -37,12 +34,12 @@ class Space
   def oficial_space 
     @matrix = matrix 
      @meteors += Meteor.generate 
-     sustitution_ship
      sustitution_matrix
      Meteor.down(@meteors,@speed)
      blank_space
+     sustitution_ship
      show_m
-     
+     #verification
   end 
     
   def sustitution_matrix
@@ -72,3 +69,12 @@ class Space
     @matrix 
   end
 end   
+
+def verification
+  @matrix.each_index do |i| 
+    if @matrix[9][i] == "🌀 " && @matrix[9][i] == "🚀 "
+      puts "Perdiste"
+      system('clear')
+    end
+  end
+end

@@ -9,6 +9,7 @@ class Game
   def self.start
     game = Game.new
     game.update
+
   end
 
   def initialize
