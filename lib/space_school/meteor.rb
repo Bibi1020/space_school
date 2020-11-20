@@ -9,7 +9,7 @@ class Meteor
   def self.generate
     set = []
 
-    3.times do
+    1.times do
       found = true
       while found do
         meteorite = Meteor.new
@@ -37,7 +37,7 @@ class Meteor
   end
 
   def initialize
-    @shape = "x-x"
+    @shape = "🌀 "
     @position = [0]
     @position << random_y
 

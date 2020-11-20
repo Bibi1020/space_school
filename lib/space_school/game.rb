@@ -1,23 +1,27 @@
 # La librería utils maneja el control de input del usuario.
 # Esto permite que la captura del input no detenga el juego mientras espera respuesta.
 require_relative 'utils'
-require_relative 'space'
+require_relative 'movements'
+require_relative 'space' 
 require_relative 'ship'
+
 class Game
   def self.start
     game = Game.new
     game.update
+
   end
 
   def initialize
     @ship = Ship.new
-    @space = Space.new
+    @space = Space.new(@ship)
     @frames = 0
     @fps = 10 # cantidad de frames por segundo
   end
 
   def update
     loop do
+      winner
       @frames += 1 # Cantidad de frame desde que el juego comenzó (puede ser útil... o ¡no!)
       calculate_speed_game
       draw
@@ -40,6 +44,7 @@ class Game
     end
   end
 
+
   def game_over
     system 'clear'
     puts "¡Perdiste!"
@@ -48,9 +53,18 @@ class Game
 
   def draw
     system 'clear'
-    puts "Frames: #{@frames}"
-    @space.show_m
+    puts "Frames: #{@frames} 
+    Velocidad de los asteroides: #{@space.speed}"
+    @space.oficial_space 
     show_menu
+  end
+
+  def winner
+    if @frames == 200
+      system('clear')
+      puts "¡Ganaste! Eres un excelente piloto, tu tripulación cuenta contigo"
+      raise StopIteration
+    end
   end
 
   # Propuesta de menú
@@ -60,13 +74,12 @@ class Game
     puts '##################################'
   end
 
-  private
 
   def calculate_speed_game
 
-    if @frames >= 300 && @frames <= 450
+    if @frames >= 300 && @frames <= 400
       @space.speed = 2
-    elsif @frames >= 450 && @frames <= 600
+    elsif @frames > 500 && @frames <= 700
       @space.speed = 3
     else
       @space.speed = 1

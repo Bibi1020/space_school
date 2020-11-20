@@ -1,12 +1,14 @@
+
 require_relative 'movements'
 require_relative 'meteor'
 require_relative 'ship'
 class Space
   attr_accessor :speed
 
-  def initialize
+  def initialize(ship)
     @matrix = matrix
     @meteors = Meteor.generate
+    @ship = ship
     @speed = 0
   end
 
@@ -15,52 +17,69 @@ class Space
       (0..9).each do |i|
           matrix[i] = []
           (0..9).each do |j|
-              matrix[i][j] = " - "
+              matrix[i][j] = "   "
           end
       end
       matrix
   end
 
-  def show
-      @matrix.each_index do |i|
-          print @matrix[i]
-          puts ""
-      end
-    end
-
-    matrix
-  end
-
   def show_m
-    @meteors += Meteor.generate
-    sustitution_ship(@matrix)
-    sustitution_matrix(@matrix)
-    Meteor.down(@meteors)
-    system ('clear')
-
-    @matrix.each_index do |i|
+    @matrix.each_index do |i|  
     print @matrix[i]
     puts ""
-    end
-
+    end 
   end
+  
 
-  def sustitution_matrix(matrix)
-
+  def oficial_space 
+     @matrix = matrix 
+     
+     @meteors += Meteor.generate 
+     sustitution_matrix
+     Meteor.down(@meteors,@speed)
+     blank_space
+     sustitution_ship
+     real_verification
+     show_m
+  end 
+    
+  def sustitution_matrix
     @meteors.each do |meteor|
       x = meteor.position[0]
       y = meteor.position[1]
-      matrix[x][y] = meteor.show
-    end
-
-    matrix
+      @matrix[x][y] = meteor.show
+    end 
+    @matrix
   end
 
-  def sustitution_ship(matrix)
+  def blank_space
+    @meteors.each do |meteor|
+      if meteor.position[0] == 9
+      x = meteor.position[0]
+      y = meteor.position[1]
+      @matrix[x][y] = "   "
+      end 
+    end
+    @matrix
+  end
+
+  def sustitution_ship
     x = @ship.position[0]
     y = @ship.position[1]
-    matrix[x][y] = @ship.show_ship
-    matrix
+    @matrix[x][y] = @ship.show_ship
+    @matrix 
+  end
+  
+
+  def real_verification
+    @meteors.each do |meteor|
+      if meteor.position[0] == @ship.position[0] && meteor.position[1] == @ship.position[1]
+        system('clear')
+        puts "Queridos familiares de la tripulación, lamentamos informales que sus heroes han fallecido en la importante misión hacia las estrellas. Tenemos pruebas que el piloto lucho por mantener la nave a salvo de un cinturon de asteroides, por el que tuvieron que pasar. Los recordaremos por siempre"
+        raise StopIteration
+      end
+    end
   end
 
-end
+
+end 
