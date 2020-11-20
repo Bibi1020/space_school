@@ -32,14 +32,15 @@ class Space
   
 
   def oficial_space 
-    @matrix = matrix 
+     @matrix = matrix 
+     
      @meteors += Meteor.generate 
      sustitution_matrix
      Meteor.down(@meteors,@speed)
-     blank_space
+     #blank_space
      sustitution_ship
+     real_verification
      show_m
-     #verification
   end 
     
   def sustitution_matrix
@@ -70,11 +71,12 @@ class Space
   end
 end   
 
-def verification
-  @matrix.each_index do |i| 
-    if @matrix[9][i] == "🌀 " && @matrix[9][i] == "🚀 "
-      puts "Perdiste"
+def real_verification
+  @meteors.each do |meteor|
+    if meteor.position[0] == @ship.position[0] && meteor.position[1] == @ship.position[1]
       system('clear')
+      puts "Queridos familiares de la tripulación, lamentamos informales que sus heroes han fallecido en la importante misión hacia las estrellas. Tenemos pruebas que el piloto lucho por mantener la nave a salvo de un cinturon de asteroides, por el que tuvieron que pasar. Los recordaremos por siempre"
+      raise StopIteration
     end
   end
 end

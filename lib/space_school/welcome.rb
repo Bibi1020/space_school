@@ -4,14 +4,14 @@ def Welcome
     self.start
       welcome = Welcome.new
       welcome.ship_shape
-     
-      if welcome.input == "a"
+      input = gets.chomp
+      if input == "a"
         system('clear')
       end
 
       welcome.intro_one
      
-      if welcome.input == "a"
+      if input == "a"
         system('clear')
       end 
 
@@ -63,10 +63,10 @@ def Welcome
         print i
         sleep 1
       end
-      
     end
-
-    def input
-     input = gets.chomp
-    end
+  end 
 end 
+
+
+
+

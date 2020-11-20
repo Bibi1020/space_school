@@ -21,6 +21,7 @@ class Game
 
   def update
     loop do
+      winner
       @frames += 1 # Cantidad de frame desde que el juego comenzó (puede ser útil... o ¡no!)
       calculate_speed_game
       draw
@@ -51,9 +52,17 @@ class Game
 
   def draw
     system 'clear'
-    puts "Frames: #{@frames}"
+    puts "Frames: #{@frames} Velocidad de los asteroides: #{@space.speed}"
     @space.oficial_space 
     show_menu
+  end
+
+  def winner
+    if @frames == 200
+      system('clear')
+      puts "¡Ganaste! Eres un excelente piloto, tu tripulación cuenta contigo"
+      raise StopIteration
+    end
   end
 
   # Propuesta de menú
