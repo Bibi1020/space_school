@@ -10,7 +10,6 @@ class Welcome
         system('clear')
       end
 
-      
       welcome.intro_two
       sleep 0.5
       system('clear')

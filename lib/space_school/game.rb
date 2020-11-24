@@ -36,7 +36,7 @@ class Game
     when 'a'
       # mover nave a la izquierda :left
       @ship.left
-    when 'd'
+    when 'l'
       # mover nave a la derecha
       @ship.right
     when 'x'
@@ -67,19 +67,21 @@ class Game
     end
   end
 
+  
+
   # Propuesta de menú
   def show_menu
     puts '##################################'
-    puts 'd: derecha, a: izquierda, x: salir'
+    puts 'l: derecha, a: izquierda, x: salir'
     puts '##################################'
   end
 
 
   def calculate_speed_game
 
-    if @frames >= 300 && @frames <= 400
+    if @frames >= 50 && @frames <= 100
       @space.speed = 2
-    elsif @frames > 500 && @frames <= 700
+    elsif @frames > 101 && @frames <= 200
       @space.speed = 3
     else
       @space.speed = 1
