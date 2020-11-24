@@ -7,7 +7,7 @@ class Ship
 
 
   def initialize 
-    @position = [9,5] 
+    @position = [7,5] 
     @shape = "🚀 " 
   end 
     

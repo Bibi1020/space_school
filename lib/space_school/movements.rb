@@ -14,7 +14,7 @@ module Movements
 
   def down(speed = 1)
 
-    self.position[0] += speed #if self.position[0] == 
+    self.position[0] += speed  
 
   end
 

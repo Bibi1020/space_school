@@ -1,22 +1,17 @@
-def Welcome 
-  attr_reader :welcome, :intro, :input
+class Welcome 
+  attr_accessor :welcome, :intro, :input
 
-    self.start
+    def self.start
       welcome = Welcome.new
       welcome.ship_shape
+      welcome.intro_one
       input = gets.chomp
       if input == "a"
         system('clear')
       end
 
-      welcome.intro_one
-     
-      if input == "a"
-        system('clear')
-      end 
-
       welcome.intro_two
-      sleep 3
+      sleep 0.5
       system('clear')
     end
 
@@ -35,8 +30,9 @@ def Welcome
         puts i
         sleep 0.3
         puts " "
-        puts "presiona 'a' para continuar"
       end
+
+      puts "presiona 'a' para continuar"
 
     end
 
@@ -47,7 +43,7 @@ def Welcome
 
       part_one.each do |i|
         print i
-        sleep 1
+        sleep 0.3
       end
 
     end
@@ -61,10 +57,9 @@ def Welcome
 
       part_two.each do |i|
         print i
-        sleep 1
+        sleep 0.3
       end
     end
-  end 
 end 
 
 

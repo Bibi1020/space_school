@@ -25,7 +25,7 @@ class Space
 
   def show_m
     @matrix.each_index do |i|  
-    print @matrix[i]
+    print Rainbow(@matrix[i]).cyan   
     puts ""
     end 
   end
@@ -39,7 +39,7 @@ class Space
      Meteor.down(@meteors,@speed)
      blank_space
      sustitution_ship
-     real_verification
+     #real_verification
      show_m
   end 
     
@@ -47,7 +47,7 @@ class Space
     @meteors.each do |meteor|
       x = meteor.position[0]
       y = meteor.position[1]
-      @matrix[x][y] = meteor.show
+      @matrix[x][y] = meteor.show if x <= 9
     end 
     @matrix
   end
