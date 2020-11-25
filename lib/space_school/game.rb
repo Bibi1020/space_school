@@ -35,10 +35,10 @@ class Game
     case key
     when 'a'
       # mover nave a la izquierda :left
-      @ship.left
-    when 'l'
+      @ship.left if @ship.position[1] >= 1
+    when 'd'
       # mover nave a la derecha
-      @ship.right
+      @ship.right if @ship.position[1] <= 5
     when 'x'
       game_over
     end
@@ -61,6 +61,7 @@ class Game
 
   def winner
     if @frames == 200
+      @space.space_winner
       system('clear')
       puts Rainbow("¡Ganaste! Eres un excelente piloto, tu tripulación cuenta contigo").cyan
       raise StopIteration
@@ -71,17 +72,17 @@ class Game
 
   # Propuesta de menú
   def show_menu
-    puts '##################################'
-    puts 'l: derecha, a: izquierda, x: salir'
-    puts '##################################'
+    puts ''
+    puts 'a: izquierda, d: derecha, x: salir'
+    puts ''
   end
 
 
   def calculate_speed_game
 
-    if @frames >= 50 && @frames <= 100
+    if @frames >= 90 && @frames <= 150
       @space.speed = 2
-    elsif @frames > 101 && @frames <= 200
+    elsif @frames > 151 && @frames <= 200
       @space.speed = 3
     else
       @space.speed = 1

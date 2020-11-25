@@ -5,7 +5,7 @@ require_relative 'space_school/game'
 
 
 module SpaceSchool
-  #LIMIT = 9
+  LIMIT = 14
   #class Error < StandardError; end
   # Your code goes here...
 end
@@ -13,4 +13,4 @@ end
 Welcome.start
 Game.start
 
-#SpaceSchool::LIMIT
+SpaceSchool::LIMIT

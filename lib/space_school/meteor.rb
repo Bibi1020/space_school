@@ -32,7 +32,7 @@ class Meteor
   def self.down(set,speed)
 
     set.each do |elem|
-      elem.down(speed) if elem.position[0] < 9
+      elem.down(speed) if elem.position[0] < SpaceSchool::LIMIT
     end
   end
 
@@ -51,7 +51,7 @@ class Meteor
 
   def random_y
 
-    rand(0..9)
+    rand(0..6)
 
   end
 end
