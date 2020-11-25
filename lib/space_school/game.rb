@@ -62,7 +62,7 @@ class Game
   def winner
     if @frames == 200
       system('clear')
-      puts "¡Ganaste! Eres un excelente piloto, tu tripulación cuenta contigo"
+      puts Rainbow("¡Ganaste! Eres un excelente piloto, tu tripulación cuenta contigo").cyan
       raise StopIteration
     end
   end

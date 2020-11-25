@@ -17,7 +17,7 @@ class Space
       (0..9).each do |i|
           matrix[i] = []
           (0..9).each do |j|
-              matrix[i][j] = "   "
+              matrix[i][j] = " "
           end
       end
       matrix
@@ -25,7 +25,7 @@ class Space
 
   def show_m
     @matrix.each_index do |i|  
-    print Rainbow(@matrix[i]).cyan   
+    print Rainbow(@matrix[i]).black
     puts ""
     end 
   end
@@ -75,7 +75,7 @@ class Space
     @meteors.each do |meteor|
       if meteor.position[0] == @ship.position[0] && meteor.position[1] == @ship.position[1]
         system('clear')
-        puts "Queridos familiares de la tripulación, lamentamos informales que sus heroes han fallecido en la importante misión hacia las estrellas. Tenemos pruebas que el piloto lucho por mantener la nave a salvo de un cinturon de asteroides, por el que tuvieron que pasar. Los recordaremos por siempre"
+        puts Rainbow("Queridos familiares de la tripulación, lamentamos informales que sus heroes han fallecido en la importante misión hacia las estrellas. Tenemos pruebas que el piloto lucho por mantener la nave a salvo de un cinturon de asteroides, por el que tuvieron que pasar. Los recordaremos por siempre").red
         raise StopIteration
       end
     end
