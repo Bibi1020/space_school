@@ -28,12 +28,12 @@ class Welcome
       paint = ["W  E  L C  O  M  E ","       to          "," S     _           "," P    /_\\          ", " A   |_|_|    S    ", " C   |_|_|    C    ", " E   |_|_|    H    ", "    /|_|_|\\   O    ", "      lll     O    ", "       lll    L    ", "        lll        "]
 
       paint.each do |i|
-        puts i
+        puts Rainbow("#{i}").red
         sleep 0.3
         puts " "
       end
-
-      puts "presiona 'a' para continuar"
+      
+      puts Rainbow("presiona 'a' para continuar").cyan
       puts ""
     end
 
@@ -44,23 +44,23 @@ class Welcome
       part_one = part_one.chars
 
       part_one.each do |i|
-        print i
-        sleep 0.1
-      end
-      puts ""
+      print Rainbow("#{i}").cyan
+      sleep 0.1
     end
+    puts ""
+  end
 
     def part_two
       part_two = "Bienvenido recluta al Space School, te daremos tu primera mision, debes atravesar el cinturon de meteoritos en un minuto para regresar con   vida a la tierra, recuerda que tu equipo depende de ti asi que si chocas con un meteorito sera el fin de tu mision......
 
-      Conocer los controles de tu nave puede salvarte la vida por eso recuerda que puedes moverte a la derecha presionando la letra A y a la     izquiera presionando la letra D
+      Conocer los controles de tu nave puede salvarte la vida por eso recuerda que puedes moverte a la izquierda presionando la letra A y a la derecha presionando la letra D
 
       ....RECLUTA EXITO Y QUE LA FUERZA TE ACOMPAÑE....."
 
       part_two = part_two.chars
 
       part_two.each do |i|
-        print i
+       print Rainbow("#{i}").red
         sleep 0.1
       end
     end
@@ -69,5 +69,5 @@ class Welcome
       @input = gets.chomp
 
     end
-
+  
 end
