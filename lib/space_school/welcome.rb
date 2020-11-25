@@ -39,7 +39,7 @@ class Welcome
 
     def part_one
       part_one = "Un grupo de valientes mentores fueron elegidos para viajar a las estrellas por el SpaceX junto a sus estudiantes, ¿te quieres unir a ellos?
-      Preciona a..."
+      Presiona a..."
 
       part_one = part_one.chars
 
@@ -53,7 +53,7 @@ class Welcome
     def part_two
       part_two = "Bienvenido recluta al Space School, te daremos tu primera mision, debes atravesar el cinturon de meteoritos en un minuto para regresar con   vida a la tierra, recuerda que tu equipo depende de ti asi que si chocas con un meteorito sera el fin de tu mision......
 
-      Conocer los controles de tu nave puede salvarte la vida por eso recuerda que puedes moverte a la derecha precionando la letra A y a la     izquiera precionando la letra D
+      Conocer los controles de tu nave puede salvarte la vida por eso recuerda que puedes moverte a la derecha presionando la letra A y a la     izquiera presionando la letra D
 
       ....RECLUTA EXITO Y QUE LA FUERZA TE ACOMPAÑE....."
 

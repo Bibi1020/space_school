@@ -45,10 +45,15 @@ class Space
   end 
 
   def space_winner 
+     loop do 
      @matrix = matrix 
      sustitution_ship
-     @ship.up
+     @ship.up 
      show_m
+     sleep 0.3
+     system('clear')
+     break if @ship.position[0] == 0
+     end 
   end
     
   def sustitution_matrix

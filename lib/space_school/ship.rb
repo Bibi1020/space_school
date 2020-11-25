@@ -15,5 +15,9 @@ class Ship
     @shape 
   end
 
+  def winner_move
+    self.up 
+  end
+
 end
     
