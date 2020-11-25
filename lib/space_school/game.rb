@@ -62,6 +62,7 @@ class Game
   def winner
     if @frames == 200
       system('clear')
+      @space.space_winner
       puts "¡Ganaste! Eres un excelente piloto, tu tripulación cuenta contigo"
       raise StopIteration
     end
@@ -71,17 +72,17 @@ class Game
 
   # Propuesta de menú
   def show_menu
-    puts '##################################'
-    puts 'l: derecha, a: izquierda, x: salir'
-    puts '##################################'
+    puts ''
+    puts 'a: izquierda, l: derecha, x: salir'
+    puts ''
   end
 
 
   def calculate_speed_game
 
-    if @frames >= 50 && @frames <= 100
+    if @frames >= 90 && @frames <= 150
       @space.speed = 2
-    elsif @frames > 101 && @frames <= 200
+    elsif @frames > 151 && @frames <= 200
       @space.speed = 3
     else
       @space.speed = 1

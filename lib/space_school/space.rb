@@ -14,10 +14,11 @@ class Space
 
   def matrix
     matrix = []
-      (0..9).each do |i|
+    spaces = '   '
+      (0..14).each do |i|
           matrix[i] = []
-          (0..9).each do |j|
-              matrix[i][j] = "   "
+          (0..6).each do |j|
+              matrix[i][j] = spaces
           end
       end
       matrix
@@ -25,7 +26,7 @@ class Space
 
   def show_m
     @matrix.each_index do |i|  
-    print Rainbow(@matrix[i]).cyan   
+    print Rainbow(@matrix[i]).cyan
     puts ""
     end 
   end
@@ -42,22 +43,29 @@ class Space
      #real_verification
      show_m
   end 
+
+  def space_winner 
+     @matrix = matrix 
+     sustitution_ship
+     @ship.up
+     show_m
+  end
     
   def sustitution_matrix
     @meteors.each do |meteor|
       x = meteor.position[0]
       y = meteor.position[1]
-      @matrix[x][y] = meteor.show if x <= 9
+      @matrix[x][y] = meteor.show if x <= SpaceSchool::LIMIT
     end 
     @matrix
   end
 
   def blank_space
     @meteors.each do |meteor|
-      if meteor.position[0] == 9
+      if meteor.position[0] == SpaceSchool::LIMIT
       x = meteor.position[0]
       y = meteor.position[1]
-      @matrix[x][y] = "   "
+      @matrix[x][y] = '   '
       end 
     end
     @matrix
@@ -80,6 +88,5 @@ class Space
       end
     end
   end
-
 
 end 
