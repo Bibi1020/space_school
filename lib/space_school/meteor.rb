@@ -1,13 +1,11 @@
 require_relative 'movements'
 
 class Meteor
-
+  include Movements
   attr_accessor :position
 
-  include Movements
-
   def self.generate
-    set = []
+    sssset = []
 
     1.times do
       found = true
@@ -40,7 +38,6 @@ class Meteor
     @shape = "🌀 "
     @position = [0]
     @position << random_y
-
   end
 
   def show
@@ -50,8 +47,8 @@ class Meteor
   private
 
   def random_y
-
     rand(0..9)
-
+  end
+endrand(0..9)
   end
 end
