@@ -37,7 +37,7 @@ class Meteor
   end
 
   def initialize
-    @shape = "🌀 "
+    @shape = "  🌀 "
     @position = [0]
     @position << random_y
 

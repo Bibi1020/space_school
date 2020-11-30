@@ -14,64 +14,62 @@ class Space
 
   def matrix
     matrix = []
-    spaces = '   '
       (0..14).each do |i|
-          matrix[i] = []
+        matrix[i] = []
           (0..6).each do |j|
-              matrix[i][j] = spaces
+            matrix[i][j] = '    '
           end
       end
-      matrix
+    matrix
   end
 
   def show_m
-    @matrix.each_index do |i|  
-    print Rainbow(@matrix[i]).black
-    puts ""
-    end 
+    @matrix.each_index do |i|
+      @matrix.each_index do |j|
+        print @matrix[i][j]
+      end
+      puts ""
+    end
   end
-  
 
-  def oficial_space 
-     @matrix = matrix 
-     
-     @meteors += Meteor.generate 
-     sustitution_matrix
-     Meteor.down(@meteors,@speed)
-     blank_space
-     sustitution_ship
-     real_verification
-     show_m
-  end 
-
-  def space_winner 
-     loop do 
-     @matrix = matrix 
-     sustitution_ship
-     @ship.up 
-     show_m
-     sleep 0.3
-     system('clear')
-     break if @ship.position[0] == 0
-     end 
+  def oficial_space
+    @matrix = matrix
+    @meteors += Meteor.generate
+    sustitution_matrix
+    Meteor.down(@meteors,@speed)
+    blank_space
+    sustitution_ship
+    real_verification
+    show_m
   end
-    
+
+  def space_winner
+    loop do
+    @matrix = matrix
+    sustitution_ship
+    @ship.up
+    show_m
+    sleep 0.3
+    system('clear')
+    break if @ship.position[0].zero?
+    end
+  end
+
   def sustitution_matrix
     @meteors.each do |meteor|
       x = meteor.position[0]
       y = meteor.position[1]
       @matrix[x][y] = meteor.show if x <= SpaceSchool::LIMIT
-    end 
+    end
     @matrix
   end
 
   def blank_space
     @meteors.each do |meteor|
-      if meteor.position[0] == SpaceSchool::LIMIT
+      next meteor.position[0] == SpaceSchool::LIMIT
       x = meteor.position[0]
       y = meteor.position[1]
       @matrix[x][y] = '   '
-      end 
     end
     @matrix
   end
@@ -80,9 +78,9 @@ class Space
     x = @ship.position[0]
     y = @ship.position[1]
     @matrix[x][y] = @ship.show_ship
-    @matrix 
+    @matrix
   end
-  
+
 
   def real_verification
     @meteors.each do |meteor|
@@ -93,5 +91,4 @@ class Space
       end
     end
   end
-
-end 
+end

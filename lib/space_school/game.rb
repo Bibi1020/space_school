@@ -2,7 +2,7 @@
 # Esto permite que la captura del input no detenga el juego mientras espera respuesta.
 require_relative 'utils'
 require_relative 'movements'
-require_relative 'space' 
+require_relative 'space'
 require_relative 'ship'
 
 class Game
@@ -53,9 +53,9 @@ class Game
 
   def draw
     system 'clear'
-    puts "Frames: #{@frames} 
+    puts "Frames: #{@frames}
     Velocidad de los asteroides: #{@space.speed}"
-    @space.oficial_space 
+    @space.oficial_space
     show_menu
   end
 
@@ -68,7 +68,7 @@ class Game
     end
   end
 
-  
+
 
   # Propuesta de menú
   def show_menu
