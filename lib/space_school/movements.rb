@@ -10,4 +10,8 @@ module Movements
   def down(speed = 1)
     position[0] += speed
   end
+
+  def up
+    position[0] -= 1
+  end
 end

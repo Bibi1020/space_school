@@ -30,12 +30,12 @@ class Meteor
   def self.down(set,speed)
 
     set.each do |elem|
-      elem.down(speed) if elem.position[0] < 9
+      elem.down(speed) if elem.position[0] < SpaceSchool::LIMIT
     end
   end
 
   def initialize
-    @shape = "🌀 "
+    @shape = " 🌀 "
     @position = [0]
     @position << random_y
   end
@@ -47,8 +47,8 @@ class Meteor
   private
 
   def random_y
-    rand(0..9)
-  end
-endrand(0..9)
+
+    rand(0..6)
+
   end
 end
