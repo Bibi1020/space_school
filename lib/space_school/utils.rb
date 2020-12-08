@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Manejo el input del usuario. No es necesario entender por ahora que es lo que está pasando aquí ;)
 
 module Utils
@@ -15,13 +17,12 @@ module Utils
   # Return::
   # * _Integer_: ASCII code of the last key pressed, or nil if none
   def self.get_key
-    if @use_stty
+    return char if @use_stty
       system('stty raw -echo') # => Raw mode, no echo
       char = (STDIN.read_nonblock(1).ord rescue nil)
       system('stty -raw echo') # => Reset terminal mode
-      return char
     else
-      return Win32API.new('crtdll', '_kbhit', [ ], 'I').Call.zero? ? nil : Win32API.new('crtdll', '_getch', [ ], 'L').Call
+      return Win32API.new('crtdll', '_kbhit', [], 'I').Call.zero? ? nil : Win32API.new('crtdll', '_getch', [], 'L').Call
     end
   end
 end
