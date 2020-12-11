@@ -3,17 +3,13 @@
 require_relative 'movements'
 
 class Meteor
-<<<<<<< HEAD
-=======
-  attr_accessor :position
-
->>>>>>> main
   include Movements
+
   attr_accessor :position
 
   # rubocop: disable Metrics/MethodLength
   def self.generate
-    sssset = []
+    set = []
 
     found = true
     while found
@@ -37,11 +33,7 @@ class Meteor
   end
 
   def initialize
-<<<<<<< HEAD
-    @shape = " 🌀 "
-=======
-    @shape = '  🌀 '
->>>>>>> main
+    @shape = ' 🌀 '
     @position = [0]
     @position << random_y
   end
