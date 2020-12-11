@@ -94,3 +94,4 @@ class Space
   end
   # rubocop: enable Layout/LineLength
 end
+#EOF
