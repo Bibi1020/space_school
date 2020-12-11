@@ -1,46 +1,41 @@
+# frozen_string_literal: true
+
 require_relative 'movements'
 
 class Meteor
+  include Movements
 
   attr_accessor :position
 
-  include Movements
-
+  # rubocop: disable Metrics/MethodLength
   def self.generate
     set = []
 
-    1.times do
-      found = true
-      while found do
-        meteorite = Meteor.new
-        found = false
+    found = true
+    while found
+      meteorite = Meteor.new
+      found = false
 
-        set.each do |elem|
-          if elem.position == meteorite.position
-            found = true
-          end
-        end
-
-        if found == false
-          set << meteorite
-        end
+      set.each do |elem|
+        found = true if elem.position == meteorite.position
       end
+
+      set << meteorite if found == false
     end
     set
   end
+  # rubocop: enable Metrics/MethodLength
 
-  def self.down(set,speed)
-
+  def self.down(set, speed)
     set.each do |elem|
       elem.down(speed) if elem.position[0] < SpaceSchool::LIMIT
     end
   end
 
   def initialize
-    @shape = "  🌀 "
+    @shape = ' 🌀 '
     @position = [0]
     @position << random_y
-
   end
 
   def show
@@ -50,8 +45,7 @@ class Meteor
   private
 
   def random_y
-
     rand(0..6)
-
   end
 end
+# EOF
