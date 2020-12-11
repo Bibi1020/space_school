@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Movements
   def right
     position[1] += 1
@@ -15,3 +17,4 @@ module Movements
     position[0] -= 1
   end
 end
+# EOF

@@ -3,11 +3,8 @@
 require_relative 'movements'
 
 class Meteor
-<<<<<<< HEAD
-=======
   attr_accessor :position
 
->>>>>>> main
   include Movements
   attr_accessor :position
 
@@ -37,11 +34,7 @@ class Meteor
   end
 
   def initialize
-<<<<<<< HEAD
-    @shape = " 🌀 "
-=======
     @shape = '  🌀 '
->>>>>>> main
     @position = [0]
     @position << random_y
   end
