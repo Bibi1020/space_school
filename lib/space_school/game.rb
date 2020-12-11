@@ -23,7 +23,7 @@ class Game
   def update
     loop do
       winner
-      @frames += 1 # Cantidad de frame desde que el juego comenzó (puede ser útil... o ¡no!)
+      @frames += 1 # Cantidad de frame desde que el juego comenzo (puede ser util... o no)
       calculate_speed_game
       draw
       handle_input # manejo de la la entrada del jugador
@@ -32,7 +32,7 @@ class Game
   end
 
   def handle_input
-    key = Utils.get_key&.chr # Se captura la entrada de jugador
+    key = Utils.key&.chr # Se captura la entrada de jugador
     case key
     when 'a'
       # mover nave a la izquierda :left
