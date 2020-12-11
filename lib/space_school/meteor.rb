@@ -48,3 +48,4 @@ class Meteor
     rand(0..6)
   end
 end
+# EOF

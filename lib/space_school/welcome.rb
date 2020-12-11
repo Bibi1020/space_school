@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Welcome
   def self.start
     intro = Welcome.new
@@ -36,10 +38,11 @@ class Welcome
     puts Rainbow("presiona 'a' para continuar").cyan
     puts ''
   end
+  # rubocop: enable Metrics/MethodLength
 
   def part_one
-    part_one = "Un grupo de valientes mentores fueron elegidos para viajar a las estrellas por el SpaceX junto a sus estudiantes, ¿te quieres unir a ellos?
-    Presiona a..."
+    part_one = 'Un grupo de mentores fueron elegidos para viajar a las estrellas por el SpaceX junto a sus estudiantes'
+    part_one << ' ¿te quieres unir a ellos? Presiona a...'
 
     part_one = part_one.chars
 
@@ -52,23 +55,24 @@ class Welcome
   end
   puts ''
 
+  # rubocop: disable Layout/LineLength
   def part_two
     part_two = "Bienvenido recluta al Space School, te daremos tu primera mision, debes atravesar el cinturon de meteoritos en un minuto para regresar con   vida a la tierra, recuerda que tu equipo depende de ti asi que si chocas con un meteorito sera el fin de tu mision......
 
-      Conocer los controles de tu nave puede salvarte la vida por eso recuerda que puedes moverte a la izquierda presionando la letra A y a la derecha presionando la letra D
+    Conocer los controles de tu nave puede salvarte la vida por eso recuerda que puedes moverte a la izquierda presionando la letra A y a la derecha presionando la letra D
 
     ....RECLUTA EXITO Y QUE LA FUERZA TE ACOMPAÑE....."
 
     part_two = part_two.chars
-
+    system('clear')
     part_two.each do |i|
-      print Rainbow("#{i}").red
+      print Rainbow(i.to_s).red
       sleep 0.1
     end
   end
+  # rubocop: enable Layout/LineLength
 
   def selection
     @input = gets.chomp
-
   end
 end

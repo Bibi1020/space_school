@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 require_relative 'movements'
 require_relative 'meteor'
 require_relative 'ship'
+
 class Space
   attr_accessor :speed
 
@@ -15,9 +18,9 @@ class Space
     matrix = []
       (0..14).each do |i|
         matrix[i] = []
-          (0..6).each do |j|
+      (0..6).each do |j|
             matrix[i][j] = '    '
-          end
+      end
       end
     matrix
   end
@@ -27,7 +30,7 @@ class Space
       @matrix.each_index do |j|
         print @matrix[i][j]
       end
-      puts ""
+      puts ''
     end
   end
 
@@ -35,7 +38,7 @@ class Space
     @matrix = matrix
     @meteors += Meteor.generate
     sustitution_matrix
-    Meteor.down(@meteors,@speed)
+    Meteor.down(@meteors, @speed)
     blank_space
     sustitution_ship
     real_verification
@@ -44,12 +47,12 @@ class Space
 
   def space_winner
     loop do
-    @matrix = matrix
-    sustitution_ship
-    @ship.up
-    show_m
-    sleep 0.3
-    system('clear')
+      @matrix = matrix
+      sustitution_ship
+      @ship.up
+      show_m
+      sleep 0.3
+      system('clear')
     break if @ship.position[0].zero?
     end
   end
@@ -65,7 +68,7 @@ class Space
 
   def blank_space
     @meteors.each do |meteor|
-      next meteor.position[0] == SpaceSchool::LIMIT
+      if meteor.position[0] == SpaceSchool::LIMIT
       x = meteor.position[0]
       y = meteor.position[1]
       @matrix[x][y] = '   '
@@ -80,13 +83,15 @@ class Space
     @matrix
   end
 
+  # rubocop: disable Layout/LineLength
   def real_verification
     @meteors.each do |meteor|
-      next meteor.position[0] == @ship.position[0] && meteor.position[1] == @ship.position[1]
+      if meteor.position[0] == @ship.position[0] && meteor.position[1] == @ship.position[1]
         system('clear')
-        puts Rainbow("Queridos familiares de la tripulación, lamentamos informales que sus heroes han fallecido en la importante misión hacia las estrellas. Tenemos pruebas que el piloto lucho por mantener la nave a salvo de un cinturon de asteroides, por el que tuvieron que pasar. Los recordaremos por siempre").red
         raise StopIteration
-      end
+        puts Rainbow('Queridos familiares de la tripulación, lamentamos informales que sus heroes han fallecido en la importante mision hacia las estrellas. Tenemos pruebas que el piloto lucho por mantener la nave a salvo de un cinturon de asteroides, por el que tuvieron que pasar. Los recordaremos por siempre').red
     end
   end
+  # rubocop: enable Layout/LineLength
 end
+#EOF
