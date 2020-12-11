@@ -49,7 +49,7 @@ PLATFORMS
 DEPENDENCIES
   rainbow
   rake (~> 12.0)
-  rspec (~> 3.10)
+  rspec (~> 3.0)
   rubocop (~> 1.4)
   rubocop-performance (~> 1.9.1)
   rubocop-rspec (~> 2.0)
