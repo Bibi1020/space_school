@@ -9,9 +9,9 @@ class Space
 
   def initialize(ship)
     @matrix = matrix
-    @meteors = Meteor.generate
+    @meteors = [Meteor.new]
     @ship = ship
-    @speed = 0
+    @speed = 1
   end
 
   def matrix
@@ -36,7 +36,7 @@ class Space
 
   def oficial_space
     @matrix = matrix
-    @meteors += Meteor.generate
+    @meteors << Meteor.new
     sustitution_matrix
     Meteor.down(@meteors, @speed)
     blank_space
