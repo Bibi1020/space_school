@@ -11,7 +11,7 @@ module SpaceSchool
   # Your code goes here...
 end
 
-Welcome.start
-Game.start
+# Welcome.start
+# Game.start
 
-SpaceSchool::LIMIT
+# SpaceSchool::LIMIT
