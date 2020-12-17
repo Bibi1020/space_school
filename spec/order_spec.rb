@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
+<<<<<<< HEAD
 #RSpec.describe Order do
+=======
+# RSpec.describe Order do
+>>>>>>> d04f48b2971ef5cc02fd97019553eb75073e5bcf
   # context 'pruebas de las lineas' do
   #   it 'line added' do
   #     order = Order.new
@@ -26,4 +30,4 @@
   #   )))
   #   expect(order.total).to eq(Money.new(5.55, :USD))
   # end
-#end
+# end

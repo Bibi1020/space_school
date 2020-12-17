@@ -11,6 +11,11 @@ RSpec.describe Meteor do
     end
 
     it 'llame el método down a cada elemento de la colección' do
+      meteors = [Meteor.new, Meteor.new, Meteor.new]
+      meteors_down = Meteor.down(meteors, 1)
+
+      expect(meteors_down.position).to be > (meteors.position)
+
     end
 
     it 'valide el limite del space' do
