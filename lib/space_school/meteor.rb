@@ -33,7 +33,6 @@ class Meteor
     set.each do |elem|
       elem.down(speed) if elem.position[0] < SpaceSchool::LIMIT
     end
-    Meteor.new
   end
 
   def initialize
