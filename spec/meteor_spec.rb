@@ -11,17 +11,18 @@ RSpec.describe Meteor do
     end
 
     it 'call down method for each element in the colection' do
-      meteors = [Meteor.new, Meteor.new, Meteor.new]
-      meteors_down = Meteor.down(meteors, 1)
+      meteor = Meteor.new
+      meteor_inicial_position = meteor.position[0]
+      meteor.down
 
-      expect(meteors_down.position).to be > (meteors.position)
+      expect(meteor.down).to be > (meteor_inicial_position)
     end
 
     it 'validate the space limit' do
-      meteor = Meteor.new
+      meteor = [Meteor.new, Meteor.new, Meteor.new]
       meteor_down = Meteor.down(meteor, 17)
 
-      expect(meteor_down[1]).to be <= (SpaceSchool::LIMIT)
+      expect(SpaceSchool::LIMIT).to be <= (meteor_down[0].position[0])
     end
   end
 end
