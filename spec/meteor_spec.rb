@@ -3,23 +3,25 @@
 RSpec.describe Meteor do
 
   context '#Meteor.down' do
-    it 'Recibe una colección de meteoritos y retorna la misma colección' do
+    it 'Receive meteor colection and return the same colection' do
       meteors = [Meteor.new, Meteor.new, Meteor.new]
       meteors_after_down = Meteor.down(meteors, 1)
 
       expect(meteors_after_down).to be(meteors)
     end
 
-    it 'llame el método down a cada elemento de la colección' do
+    it 'call down method for each element in the colection' do
       meteors = [Meteor.new, Meteor.new, Meteor.new]
       meteors_down = Meteor.down(meteors, 1)
 
       expect(meteors_down.position).to be > (meteors.position)
-
     end
 
-    it 'valide el limite del space' do
+    it 'validate the space limit' do
+      meteor = Meteor.new
+      meteor_down = Meteor.down(meteor, 17)
 
+      expect(meteor_down[1]).to be <= (SpaceSchool::LIMIT)
     end
   end
 end
