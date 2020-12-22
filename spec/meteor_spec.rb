@@ -1,27 +1,37 @@
 # frozen_string_literal: true
 
 RSpec.describe Meteor do
-
   context '#Meteor.down' do
-    it 'Receive meteor colection and return the same colection' do
-      meteors = [Meteor.new, Meteor.new, Meteor.new]
-      meteors_after_down = Meteor.down(meteors, 1)
-
-      expect(meteors_after_down).to be(meteors)
+    before do
+      @meteors = [Meteor.new, Meteor.new, Meteor.new]
     end
 
-    it 'call down method for each element in the colection' do
-      meteors = [Meteor.new, Meteor.new, Meteor.new]
-      Meteor.down(meteors, 1)
+    it 'Receive meteor collection and return the same collection' do
+      meteors_after_down = Meteor.down(@meteors, 1)
+      expect(meteors_after_down).to be(@meteors)
+    end
 
-      expect(meteors_down.position).to be > (meteors.position)
+    it 'call down method for each element in the collection' do
+      meteors_inicial_position =  @meteors.map { |meteor| meteor.position[0] }
+      Meteor.down(@meteors, 1)
+      meteors_final_position =  @meteors.map { |meteor| meteor.position[0] }
+
+      array_of_true = []
+      meteors_inicial_position.each_with_index do |position, index|
+        array_of_true << (position < meteors_final_position[index])
+      end
+      expect(array_of_true).to all be(true)
     end
 
     it 'validate the space limit' do
-      meteor = Meteor.new
-      meteor_down = Meteor.down(meteor, 17)
+      (SpaceSchool::LIMIT + 1).times { Meteor.down(@meteors, 1) }
 
-      expect(meteor_down[1]).to be <= (SpaceSchool::LIMIT)
+      expect(@meteors.first.position[0]).to be <= (SpaceSchool::LIMIT)
     end
+  end
+
+  it '#down' do
+    meteor = Meteor.new
+    expect(meteor.position[0]).to be < (meteor.down.position[0])
   end
 end

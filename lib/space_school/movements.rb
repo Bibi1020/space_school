@@ -11,6 +11,7 @@ module Movements
 
   def down(speed = 1)
     position[0] += speed
+    self
   end
 
   def up
