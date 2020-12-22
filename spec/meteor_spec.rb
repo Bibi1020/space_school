@@ -12,7 +12,7 @@ RSpec.describe Meteor do
 
     it 'call down method for each element in the colection' do
       meteors = [Meteor.new, Meteor.new, Meteor.new]
-      meteors_down = Meteor.down(meteors, 1)
+      Meteor.down(meteors, 1)
 
       expect(meteors_down.position).to be > (meteors.position)
     end
