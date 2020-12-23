@@ -40,8 +40,9 @@ RSpec.describe Space do
 
   it 'replace ship in matrix' do
     @space.sustitution_ship
+    position_ship = @space.ship.position
 
-    expect(@space.sustitution_ship[12][3]).to be == (@space.ship.shape)
+    expect(@space.matrix[position_ship[0]][position_ship[1]]).to be == (@space.ship.shape)
   end
 
   it 'verify that meteor and ship are not in the same position' do
