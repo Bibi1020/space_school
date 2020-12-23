@@ -12,9 +12,9 @@ RSpec.describe Meteor do
     end
 
     it 'call down method for each element in the collection' do
-      meteors_inicial_position =  @meteors.map { |meteor| meteor.position[0] }
+      meteors_inicial_position = @meteors.map { |meteor| meteor.position[0] }
       Meteor.down(@meteors, 1)
-      meteors_final_position =  @meteors.map { |meteor| meteor.position[0] }
+      meteors_final_position = @meteors.map { |meteor| meteor.position[0] }
 
       array_of_true = []
       meteors_inicial_position.each_with_index do |position, index|

@@ -6,6 +6,7 @@ class Meteor
   include Movements
 
   attr_accessor :position
+  attr_reader :shape
 
   # attr_reader :shape
 

@@ -5,24 +5,14 @@ require_relative 'meteor'
 require_relative 'ship'
 
 class Space
-  attr_accessor :speed, :matrix, :meteors, :ship
+  attr_accessor :speed, :meteors, :ship
+  attr_reader :matrix
 
   def initialize(ship)
-    @matrix = matrix
+    @matrix = generate_matrix
     @meteors = [Meteor.new]
     @ship = ship
     @speed = 1
-  end
-
-  def matrix
-    matrix = []
-    (0..14).each do |i|
-      matrix[i] = []
-      (0..6).each do |j|
-        matrix[i][j] = '    '
-      end
-    end
-    matrix
   end
 
   def show_m
@@ -35,7 +25,7 @@ class Space
   end
 
   def oficial_space
-    @matrix = matrix
+    @matrix = generate_matrix
     @meteors << Meteor.new
     sustitution_matrix
     Meteor.down(@meteors, @speed)
@@ -47,7 +37,7 @@ class Space
 
   def space_winner
     loop do
-      @matrix = matrix
+      @matrix = generate_matrix
       sustitution_ship
       @ship.up
       show_m
@@ -80,7 +70,7 @@ class Space
   def sustitution_ship
     x = @ship.position[0]
     y = @ship.position[1]
-    @matrix[x][y] = @ship.show_ship
+    @matrix[x][y] = @ship.shape
     @matrix
   end
 
@@ -97,5 +87,19 @@ class Space
     puts Rainbow('Queridos familiares de la tripulación, lamentamos informales que sus heroes han fallecido en la importante misión hacia las estrellas. Tenemos pruebas que el piloto lucho por mantener la nave a salvo de un cinturón de asteroides, por el que tuvieron que pasar. Los recordaremos por siempre').red
   end
   # rubocop: enable Layout/LineLength
+
+  private
+
+  def generate_matrix
+    matrix = []
+    (0..14).each do |i|
+      matrix[i] = []
+      (0..6).each do |j|
+        matrix[i][j] = '    '
+      end
+    end
+    matrix
+  end
+
 end
 # EOF

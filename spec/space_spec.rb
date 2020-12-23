@@ -2,13 +2,32 @@
 
 RSpec.describe Space do
   before do
-      @space = Space.new(Ship.new)
+    @space = Space.new(Ship.new)
   end
 
   it 'when generate meteors replace in matrix' do
-    @space.sustitution_matrix
+    # meteors_position =  @space.meteors.map { |meteor| meteor.position }
+    # @space.sustitution_matrix
+    # array_true = []
+    # @space.matrix.each_index do |position, ind|
+    #   shape =
+    #   array_true << (position == )
 
-    expect(@space.sustitution_matrix).not_to eql(@space.matrix)
+    # end
+
+    # value = @space.matrix[position_meteor[0]][position_meteor[1]]
+
+    # expect(value).to eql(@space.meteors.first.shape)
+
+    # Solucion
+
+    meteor_positions = @space.meteors.map { |meteor| meteor.position }
+    @space.sustitution_matrix
+    array_of_true = []
+    meteor_positions.each_with_index do |position, index|
+      array_of_true << (@space.meteors[index].shape == @space.matrix[position[0]][position[1]])
+    end
+    expect(array_of_true).to all be(true)
   end
 
   it 'when a meteor in position[0] is 14, replace for blank space' do
