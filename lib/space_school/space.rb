@@ -5,7 +5,7 @@ require_relative 'meteor'
 require_relative 'ship'
 
 class Space
-  attr_accessor :speed
+  attr_accessor :speed, :matrix, :meteors, :ship
 
   def initialize(ship)
     @matrix = matrix
